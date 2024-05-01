@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 
+import com.moetez.employees.entities.Departement;
 import com.moetez.employees.entities.Employee;
 import com.moetez.employees.repos.EmployeeRepository;
 import com.moetez.employees.service.EmployeeService;
@@ -66,5 +67,70 @@ class EmployeesApplicationTests {
 	{
 	System.out.println(p);
 	} */
-	
-}}
+	}
+	@Test
+	public void testfindByNomEmployee()
+	{
+		List<Employee> empls = employeeRepository.findByNomEmployee("Ghariani moetez");
+		for (Employee e : empls)
+		{
+		System.out.println(e);
+		} 
+	}
+	@Test
+	public void testfindByNomEmployeeContains()
+	{
+		List<Employee> empls = employeeRepository.findByNomEmployeeContains("ksibi");
+		for (Employee e : empls)
+		{
+		System.out.println(e);
+		} 
+	}
+	@Test
+	public void testfindByNomSalaire()
+	{
+		List<Employee> empls = employeeRepository.findByNomSalaire("Ghariani moetez",1000.0);
+		for (Employee e : empls)
+		{
+		System.out.println(e);
+		} 
+	}
+	@Test
+	public void testfindByDepartement()
+	{
+		Departement dep=new Departement();
+		dep.setIdDep(1L);
+		List<Employee> empls = employeeRepository.findByDepartement(dep);
+		for (Employee e : empls)
+		{
+		System.out.println(e);
+		} 
+	}
+	@Test
+	public void testfindByDepartementIdDep()
+	{
+		List<Employee> empls = employeeRepository.findByDepartementIdDep(1L);
+		for (Employee e : empls)
+		{
+		System.out.println(e);
+		} 
+	}
+	@Test
+	public void testfindByOrderByNomEmployeeAsc()
+	{
+		List<Employee> empls = employeeRepository.findByOrderByNomEmployeeAsc();
+		for (Employee e : empls)
+		{
+		System.out.println(e);
+		} 
+	}
+	@Test
+	public void testtrierEmployeesNomsSalaire()
+	{
+		List<Employee> empls = employeeRepository.trierEmployeesNomsSalaire();
+		for (Employee e : empls)
+		{
+		System.out.println(e);
+		} 
+	}
+	}
