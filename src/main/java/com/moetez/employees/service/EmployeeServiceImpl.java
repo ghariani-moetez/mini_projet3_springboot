@@ -9,11 +9,14 @@ import org.springframework.stereotype.Service;
 
 import com.moetez.employees.entities.Departement;
 import com.moetez.employees.entities.Employee;
+import com.moetez.employees.repos.DepartementRepository;
 import com.moetez.employees.repos.EmployeeRepository;
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
 	@Autowired
 	EmployeeRepository employeeRepository;
+	@Autowired
+	DepartementRepository departementRepository;
 	@Override
 	public Employee saveEmployee(Employee e) {
 		return employeeRepository.save(e);
@@ -83,6 +86,12 @@ public class EmployeeServiceImpl implements EmployeeService{
 	@Override
 	public List<Employee> trierEmployeesNomsSalaire() {
 		return employeeRepository.trierEmployeesNomsSalaire();
+	}
+
+	@Override
+	public List<Departement> getAllDepartements() {
+		// TODO Auto-generated method stub
+		return  departementRepository.findAll();
 	}
 
 }

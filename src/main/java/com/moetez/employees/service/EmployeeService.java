@@ -22,5 +22,7 @@ public interface EmployeeService {
 	List<Employee> findByDepartementIdDep(Long id);
 	List<Employee> findByOrderByNomEmployeeAsc();
 	List<Employee> trierEmployeesNomsSalaire();
+	List<Departement> getAllDepartements();
+
 
 }
